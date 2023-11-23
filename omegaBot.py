@@ -24,7 +24,7 @@ def start():
         i = 1
         while (not found_number):
             try:
-                num = texts[-i]
+                num = texts[-i].split(" ")[0]
                 num = int(num) + 1
                 found_number = True
 
@@ -37,7 +37,7 @@ def start():
                     break
 
 
-        if num > my_latest_num + 1:
+        if num != my_latest_num and num != my_latest_num + 1:
             keyboard = driver.find_element('xpath', '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[2]/div[1]/div[2]/div[1]/p')
             keyboard.send_keys(int(num))
             keyboard.send_keys(Keys.RETURN)
